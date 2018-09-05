@@ -17,3 +17,25 @@ function loadAllItems() {
     price: 2.00
   }];
 }
+
+const inputTransferToItems = (input) => {
+  let inputArray = input.map(value => {
+    return {'id': value.split(' x ')[0], 'count': parseInt(value.split('x')[1])}
+  });
+  let res = [];
+  for (let i = 0; i < inputArray.length; i++) {
+    for (let j = 0; j < loadAllItems().length; j++) {
+      let item = loadAllItems()[j];
+      if (inputArray[i].id === item.id) {
+        console.log("fun");
+        let newItem = {'id': item.id, 'name': item.name, 'price': item.price, 'count': inputArray[i].count};
+        res.push(newItem);
+        console.log(res);
+
+      }
+    }
+  }
+  return res;
+}
+
+module.exports = inputTransferToItems;
