@@ -27,10 +27,8 @@ const inputTransferToItems = (input) => {
     for (let j = 0; j < loadAllItems().length; j++) {
       let item = loadAllItems()[j];
       if (inputArray[i].id === item.id) {
-        console.log("fun");
         let newItem = {'id': item.id, 'name': item.name, 'price': item.price, 'count': inputArray[i].count};
         res.push(newItem);
-        console.log(res);
 
       }
     }
